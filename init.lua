@@ -720,7 +720,7 @@ require('lazy').setup({
         pyright = {},
         rust_analyzer = {},
         ruby_ls = {},
-        rubocop = {},
+        -- rubocop = {},
         gopls = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
