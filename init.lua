@@ -732,6 +732,7 @@ require('lazy').setup({
         tsserver = {
           filetypes = { 'html', 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'typescript.tsx' },
         },
+        emmet_language_server = { 'html' },
         --
 
         lua_ls = {
@@ -829,6 +830,7 @@ require('lazy').setup({
         ruby = { 'rubocop' },
         go = { 'gofmt' },
         rust = { 'rustfmt' },
+        html = { 'prettierd' },
       },
       formatters = {},
       -- custom command to run conform formatter for given language
