@@ -610,7 +610,9 @@ require('lazy').setup({
         gopls = {},
         pyright = {},
         rust_analyzer = {},
-        ruby_ls = {},
+        ruby_ls = {
+          filetypes = { 'ruby' },
+        },
         -- rubocop = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -618,7 +620,9 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        tsserver = {},
+        tsserver = {
+          filetypes = { 'html', 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'typescript.tsx' },
+        },
         --
 
         lua_ls = {
