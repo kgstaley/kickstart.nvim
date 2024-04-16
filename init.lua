@@ -610,7 +610,7 @@ require('lazy').setup({
         gopls = {},
         pyright = {},
         rust_analyzer = {},
-        ruby_lsp = {
+        solargraph = {
           filetypes = { 'ruby' },
         },
         -- rubocop = {},
