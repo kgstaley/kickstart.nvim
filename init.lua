@@ -653,7 +653,7 @@ require('lazy').setup({
         gopls = {},
         pyright = {},
         rust_analyzer = {},
-        ruby_ls = {
+        ruby_lsp = {
           filetypes = { 'ruby' },
         },
         -- rubocop = {},
