@@ -656,9 +656,6 @@ require('lazy').setup({
         solargraph = {
           filetypes = { 'ruby' },
         },
-        codelldb = {
-          filetypes = { 'rust' },
-        },
         -- rubocop = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
