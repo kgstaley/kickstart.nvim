@@ -176,7 +176,7 @@ return { -- LSP Configuration & Plugins
           command = 'clippy',
         },
       },
-      solargraph = {
+      ruby_lsp = {
         filetypes = { 'ruby' },
       },
       -- rubocop = {},
