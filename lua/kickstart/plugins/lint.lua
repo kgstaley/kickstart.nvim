@@ -8,7 +8,7 @@ return {
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
         ruby = { 'rubocop' },
-        terraform = { 'tlint' },
+        terraform = { 'tflint' },
         json = { 'jsonlint' },
         javascript = { 'eslint_d' },
       }
