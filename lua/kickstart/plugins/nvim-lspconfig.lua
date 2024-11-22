@@ -176,9 +176,10 @@ return { -- LSP Configuration & Plugins
           command = 'clippy',
         },
       },
-      ruby_lsp = {
-        filetypes = { 'ruby' },
-      },
+      solargraph = {},
+      -- ruby_lsp = {
+      --   filetypes = { 'ruby' },
+      -- },
       -- rubocop = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
       --

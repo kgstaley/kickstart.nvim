@@ -787,6 +787,8 @@ require('lazy').setup({
     end,
   },
 
+  { 'Bilal2453/luvit-meta', lazy = true },
+  -- lsp config is in the nvim-lspconfig.lua file
   { -- Autocompletion
     'saghen/blink.cmp',
     event = 'VimEnter',
