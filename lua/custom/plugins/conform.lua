@@ -40,7 +40,7 @@ return { -- Autoformat
       -- javascript = { { 'prettierd', 'prettier' } }
       javascript = { 'prettierd' },
       typescript = { 'prettierd' },
-      ruby = { 'rubocop' },
+      -- ruby = { 'rubocop' },
       go = { 'gofmt' },
       rust = { 'rustfmt' },
       html = { 'prettierd' },
