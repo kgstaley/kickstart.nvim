@@ -895,9 +895,11 @@ require('lazy').setup({
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
     -- 'folke/tokyonight.nvim',
     -- 'catppuccin/nvim',
-    -- 'olivercederborg/poimandres.nvim',
-    'ntk148v/habamax.nvim',
-    name = 'habamax',
+    --'olivercederborg/poimandres.nvim',
+    --'ntk148v/habamax.nvim',
+    -- 'rose-pine/neovim',
+    'ptdewey/darkearth-nvim',
+    name = 'earthy',
     dependencies = { 'rktjmp/lush.nvim' },
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
@@ -911,7 +913,7 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'habamax'
+      vim.cmd.colorscheme 'darkearth'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
@@ -976,7 +978,7 @@ require('lazy').setup({
         'query',
         'vim',
         'vimdoc',
-        'ruby',
+        --'ruby',
         'javascript',
         'typescript',
         'rust',
@@ -989,9 +991,11 @@ require('lazy').setup({
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { 'ruby' },
+        -- additional_vim_regex_highlighting = { 'ruby' },
       },
-      indent = { enable = true, disable = { 'ruby' } },
+      indent = { enable = true, disable = { 
+        -- 'ruby' 
+      } },
     },
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:

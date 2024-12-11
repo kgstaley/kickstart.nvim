@@ -7,7 +7,7 @@ return {
       local lint = require 'lint'
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
-        ruby = { 'rubocop' },
+        -- ruby = { 'rubocop' },
         terraform = { 'tflint' },
         json = { 'jsonlint' },
         javascript = { 'eslint_d' },
