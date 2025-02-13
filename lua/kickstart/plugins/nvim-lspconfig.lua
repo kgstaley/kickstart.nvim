@@ -182,6 +182,11 @@ return { -- LSP Configuration & Plugins
         },
         completion = {
           enable = true
+        },
+        settings = {
+          ruby = {
+            command = "/Users/kerry/.rbenv/shims/ruby"
+          }
         }
       },
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
