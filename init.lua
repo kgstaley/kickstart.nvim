@@ -899,16 +899,15 @@ require('lazy').setup({
     --'ntk148v/habamax.nvim',
     -- 'rose-pine/neovim',
     'ptdewey/darkearth-nvim',
-    name = 'earthy',
     dependencies = { 'rktjmp/lush.nvim' },
     priority = 1000, -- Make sure to load this before all the other start plugins.
     config = function()
       ---@diagnostic disable-next-line: missing-fields
-      require('tokyonight').setup {
-        styles = {
-          comments = { italic = false }, -- Disable italics in comments
-        },
-      }
+      -- require('tokyonight').setup {
+      --   styles = {
+      --     comments = { italic = false }, -- Disable italics in comments
+      --   },
+      -- }
 
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
@@ -993,9 +992,12 @@ require('lazy').setup({
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
         -- additional_vim_regex_highlighting = { 'ruby' },
       },
-      indent = { enable = true, disable = { 
-        -- 'ruby' 
-      } },
+      indent = {
+        enable = true,
+        disable = {
+          -- 'ruby'
+        },
+      },
     },
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
