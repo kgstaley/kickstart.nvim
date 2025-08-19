@@ -20,8 +20,8 @@ return { -- LSP Plugins
       -- Automatically install LSPs and related tools to stdpath for Neovim
       -- Mason must be loaded before its dependents so we need to set it up here.
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-      { 'williamboman/mason.nvim', opts = {} },
-      'williamboman/mason-lspconfig.nvim',
+      { 'mason-org/mason.nvim', opts = {} },
+      'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
@@ -31,31 +31,6 @@ return { -- LSP Plugins
       'saghen/blink.cmp',
     },
     config = function()
-      -- Brief aside: **What is LSP?**
-      --
-      -- LSP is an initialism you've probably heard, but might not understand what it is.
-      --
-      -- LSP stands for Language Server Protocol. It's a protocol that helps editors
-      -- and language tooling communicate in a standardized fashion.
-      --
-      -- In general, you have a "server" which is some tool built to understand a particular
-      -- language (such as `gopls`, `lua_ls`, `rust_analyzer`, etc.). These Language Servers
-      -- (sometimes called LSP servers, but that's kind of like ATM Machine) are standalone
-      -- processes that communicate with some "client" - in this case, Neovim!
-      --
-      -- LSP provides Neovim with features like:
-      --  - Go to definition
-      --  - Find references
-      --  - Autocompletion
-      --  - Symbol Search
-      --  - and more!
-      --
-      -- Thus, Language Servers are external tools that must be installed separately from
-      -- Neovim. This is where `mason` and related plugins come into play.
-      --
-      -- If you're wondering about lsp vs treesitter, you can check out the wonderfully
-      -- and elegantly composed help section, `:help lsp-vs-treesitter`
-
       --  This function gets run when an LSP attaches to a particular buffer.
       --    That is to say, every time a new file is opened that is associated with
       --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
@@ -222,15 +197,31 @@ return { -- LSP Plugins
                 enable = true,
               },
               checkOnSave = {
-                command = "check",
+                command = 'check',
               },
             },
           },
         },
-        solargraph = {
-          filetypes = { 'ruby' },
+        ruby_lsp = {
+          init_options = {
+            enabledFeatures = {
+              diagnostics = true,
+              documentHighlights = true,
+              documentLink = true,
+              documentSymbols = true,
+              foldingRanges = true,
+              formatting = true,
+              hover = true,
+              inlayHint = true,
+              onTypeFormatting = true,
+              selectionRanges = true,
+              semanticHighlighting = true,
+              completion = true,
+              codeActions = true,
+            },
+            experimentalFeaturesEnabled = true,
+          },
         },
-        -- rubocop = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -276,6 +267,7 @@ return { -- LSP Plugins
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'rubocop', -- Ruby linter/formatter (pairs great with ruby_lsp)
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
