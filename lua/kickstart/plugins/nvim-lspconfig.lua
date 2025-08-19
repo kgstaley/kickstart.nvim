@@ -1,6 +1,6 @@
 local keymap = vim.keymap.set
 
-return   -- LSP Plugins
+return { -- LSP Plugins
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
     -- used for completion, annotations and signatures of Neovim apis
@@ -20,8 +20,8 @@ return   -- LSP Plugins
       -- Automatically install LSPs and related tools to stdpath for Neovim
       -- Mason must be loaded before its dependents so we need to set it up here.
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-      { 'mason-org/mason.nvim', opts = {} },
-      'mason-org/mason-lspconfig.nvim',
+      { 'williamboman/mason.nvim', opts = {} },
+      'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
@@ -210,9 +210,23 @@ return   -- LSP Plugins
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-        gopls = { 'go' },
-        pyright = { 'py' },
-        rust_analyzer = { 'rust' },
+        gopls = {},
+        pyright = {},
+        rust_analyzer = {
+          settings = {
+            ['rust-analyzer'] = {
+              cargo = {
+                allFeatures = true,
+              },
+              procMacro = {
+                enable = true,
+              },
+              checkOnSave = {
+                command = "check",
+              },
+            },
+          },
+        },
         solargraph = {
           filetypes = { 'ruby' },
         },
@@ -226,8 +240,9 @@ return   -- LSP Plugins
         ts_ls = {
           filetypes = { 'html', 'typescript', 'typescriptreact', 'javascript', 'javascriptreact', 'typescript.tsx' },
         },
-        emmet_language_server = { 'html' },
-        --
+        emmet_language_server = {
+          filetypes = { 'html' },
+        },
 
         lua_ls = {
           -- cmd = { ... },
@@ -279,4 +294,5 @@ return   -- LSP Plugins
         },
       }
     end,
-  }
+  },
+}
